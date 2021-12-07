@@ -1,0 +1,22 @@
+.Button {
+  width: 350px;
+  height: 35px;
+  cursor: pointer;
+  border: none;
+
+  &_backgroundColor {
+    &_red {
+      background-color: #DB182A;
+    }
+  }
+
+  &_textColor {
+    &_white {
+      color: white;
+    }
+  }
+}
+
+.Button:hover {
+  background-color: #18202C;
+}
