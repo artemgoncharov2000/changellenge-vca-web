@@ -7,18 +7,29 @@ const cnButton = cn('Button');
 type PropsT = {
   label: string;
   disabled?: boolean;
-  onClick: () => void
+  backgroundColor?: string;
+  textColor?: string;
+  onClick: () => void;
 }
 
 const Button: FC<PropsT> = ({
-                              label,
-                              disabled = false,
-                              onClick,
+  label,
+  disabled = false,
+  backgroundColor= "black",
+  textColor = "white",
+  onClick,
 }) => {
 
   return (
     <>
-      <button disabled={disabled} className={cnButton()} onClick={onClick}>{label}</button>
+      <button
+        className={cnButton({
+          backgroundColor: backgroundColor,
+          textColor: textColor,
+        })}
+        disabled={disabled}
+        onClick={onClick}>{label}
+      </button>
     </>
   )
 }
