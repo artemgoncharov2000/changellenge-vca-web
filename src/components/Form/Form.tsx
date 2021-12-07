@@ -12,9 +12,24 @@ const sections = [{label: "Базовая информация"}, {label: "Об�
 const Form = () => {
 
   const [activeSectionLabel, setActiveSectionLabel] = useState<string>(testNames[0]);
+  const [activeSectionIndex, setActiveSectionIndex] = useState<number>(0);
 
   const nextSectionByName = (label: string) => {
+    const currentIndex = testNames.indexOf(label)
+    setActiveSectionIndex(currentIndex);
     setActiveSectionLabel(label);
+  }
+
+  const nextSection = () => {
+    const currentIndex = activeSectionIndex + 1;
+    setActiveSectionIndex(currentIndex);
+    setActiveSectionLabel(testNames[currentIndex]);
+  }
+
+  const prevSection = () => {
+    const currentIndex = activeSectionIndex - 1;
+    setActiveSectionIndex(currentIndex);
+    setActiveSectionLabel(testNames[currentIndex]);
   }
 
   return (
@@ -30,7 +45,14 @@ const Form = () => {
             return null;
           }
 
-          return <Section data={section.label} />
+          return (
+            <Section
+              data={section.label}
+              nextSection={nextSection}
+              prevSection={prevSection}
+              currentIndex={activeSectionIndex}
+              maxIndex={testNames.length - 1}
+            />)
         })
       }
     </div>
