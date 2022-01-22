@@ -3,7 +3,7 @@ import { cn } from '@bem-react/classname';
 import './Form.scss';
 import NavBar from "./NavBar/NavBar";
 import map from 'lodash/map';
-import Section from "./Section/Section";
+import Tab from "./Tab/Tab";
 
 const cnForm = cn('Form');
 
@@ -11,46 +11,46 @@ const testNames = ['Базовая информация', 'Образовани�
 const sections = [{label: "Базовая информация"}, {label: "Образование"}, {label: "Опыт работы"}];
 const Form = () => {
 
-  const [activeSectionLabel, setActiveSectionLabel] = useState<string>(testNames[0]);
-  const [activeSectionIndex, setActiveSectionIndex] = useState<number>(0);
+  const [activeTabLabel, setActiveTabLabel] = useState<string>(testNames[0]);
+  const [activeTabIndex, setActiveTabIndex] = useState<number>(0);
 
-  const nextSectionByName = (label: string) => {
+  const nextTabByName = (label: string) => {
     const currentIndex = testNames.indexOf(label)
-    setActiveSectionIndex(currentIndex);
-    setActiveSectionLabel(label);
+    setActiveTabIndex(currentIndex);
+    setActiveTabLabel(label);
   }
 
-  const nextSection = () => {
-    const currentIndex = activeSectionIndex + 1;
-    setActiveSectionIndex(currentIndex);
-    setActiveSectionLabel(testNames[currentIndex]);
+  const nextTab = () => {
+    const currentIndex = activeTabIndex + 1;
+    setActiveTabIndex(currentIndex);
+    setActiveTabLabel(testNames[currentIndex]);
   }
 
-  const prevSection = () => {
-    const currentIndex = activeSectionIndex - 1;
-    setActiveSectionIndex(currentIndex);
-    setActiveSectionLabel(testNames[currentIndex]);
+  const prevTab = () => {
+    const currentIndex = activeTabIndex - 1;
+    setActiveTabIndex(currentIndex);
+    setActiveTabLabel(testNames[currentIndex]);
   }
 
   return (
     <div className={cnForm()}>
       <NavBar
         sectionLabels={testNames}
-        activeSectionLabel={activeSectionLabel}
-        nextSectionByName={nextSectionByName}
+        activeSectionLabel={activeTabLabel}
+        nextSectionByName={nextTabByName}
       />
       {
         map(sections, section => {
-          if (section.label !== activeSectionLabel) {
+          if (section.label !== activeTabLabel) {
             return null;
           }
 
           return (
-            <Section
+            <Tab
               data={section.label}
-              nextSection={nextSection}
-              prevSection={prevSection}
-              currentIndex={activeSectionIndex}
+              nextSection={nextTab}
+              prevSection={prevTab}
+              currentIndex={activeTabIndex}
               maxIndex={testNames.length - 1}
             />)
         })

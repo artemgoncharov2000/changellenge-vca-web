@@ -1,9 +1,9 @@
 import React, { FC } from "react";
 import { cn } from '@bem-react/classname';
 import Button from "../../styled-components/Button/Button";
-import './Section.scss';
+import './Tab.scss';
 
-const cnSection = cn('Section');
+const cnTab = cn('Tab');
 const cnNavigationBlock = cn('NavigationBlock');
 
 type PropsT = {
@@ -14,10 +14,10 @@ type PropsT = {
   prevSection: () => void;
 }
 
-const Section: FC<PropsT> = ({data, nextSection, prevSection, maxIndex, currentIndex}) => {
+const Tab: FC<PropsT> = ({data, nextSection, prevSection, maxIndex, currentIndex}) => {
 
   return (
-    <div className={cnSection()}>
+    <div className={cnTab()}>
       <div>{data}</div>
       <div className={cnNavigationBlock()}>
         <Button disabled={currentIndex === 0} label={"Назад"} onClick={prevSection}/>
@@ -33,4 +33,4 @@ const Section: FC<PropsT> = ({data, nextSection, prevSection, maxIndex, currentI
   )
 }
 
-export default Section;
+export default Tab;
