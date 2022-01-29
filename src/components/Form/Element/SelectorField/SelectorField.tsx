@@ -16,10 +16,6 @@ const SelectorField: FC<ISelectorFieldProps> = (props) => {
         placeholder,
     } = props;
     const [field, meta, helpers] = useField(String(elemId));
-
-    const mappedOptions = map(options, (option) => ({ value: option, label: option}))
-
-
     const handleValueChange = ({value}: any) => {
         helpers.setValue(value)
     }
@@ -30,11 +26,11 @@ const SelectorField: FC<ISelectorFieldProps> = (props) => {
                 className="basic-single"
                 classNamePrefix="select"
                 placeholder={placeholder}
-                defaultValue={field.value}
+                defaultValue={field.value ? {value: field.value, label: field.value} : null}
                 name={field.name}
                 onBlur={field.onBlur}
                 onChange={handleValueChange}
-                options={mappedOptions}
+                options={map(options, (option) => ({ value: option, label: option}))}
                 theme={(theme) => ({
                     ...theme,
                     borderRadius: 0,
