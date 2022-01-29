@@ -18,8 +18,8 @@ export const getInitialValues = (data: any) => {
 
                 if (type === 'INTERVAL_DATE_PICKER') {
                     initialValues[String(id)] = {
-                        from: null,
-                        to: null,
+                        from: new Date(),
+                        to: new Date(),
                     }
                     return;
                 }
