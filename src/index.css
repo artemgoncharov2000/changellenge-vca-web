@@ -4,11 +4,27 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: 'GTWalsheimPro-Bold';
+  src: local('GTWalsheimPro-Bold'), url('./assets/fonts/GTWalsheimPro-Bold.ttf') format('truetype');
+  font-weight: auto;
+}
+
+@font-face {
+  font-family: 'GTWalsheimPro-Medium';
+  src: local('GTWalsheimPro-Medium'), url('./assets/fonts/GTWalsheimPro-Medium.ttf') format('truetype');
+  font-weight: auto;
+}
+
+@font-face {
+  font-family: 'GTWalsheimPro-Regular';
+  src: local('GTWalsheimPro-Regular'), url('./assets/fonts/GTWalsheimPro-Regular.ttf') format('truetype');
+  font-weight: auto;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'GTWalsheimPro-Regular', 'GTWalsheimPro-Medium', 'GTWalsheimPro-Bold', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -17,3 +33,5 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
