@@ -1,0 +1,13 @@
+.section {
+  &__title {
+    margin: 19px 0;
+
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  &__content {
+    border: 1px solid #F2F2F2;
+    padding: 18px;
+  }
+}
