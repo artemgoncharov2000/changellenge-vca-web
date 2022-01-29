@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, forwardRef } from "react";
 import { cn } from '@bem-react/classname';
 import './Button.scss';
 
@@ -9,29 +9,38 @@ type PropsT = {
   disabled?: boolean;
   backgroundColor?: string;
   textColor?: string;
-  onClick: () => void;
+  type?: 'submit'
+  onClick?: () => void;
 }
 
-const Button: FC<PropsT> = ({
-  label,
-  disabled = false,
-  backgroundColor= "black",
-  textColor = "white",
-  onClick,
-}) => {
+
+const Button = forwardRef<HTMLButtonElement, PropsT>((props, ref) => {
+
+    const {
+        label,
+        disabled = false,
+        backgroundColor= "black",
+        textColor = "white",
+        onClick,
+        type,
+        ...rest
+    } = props
 
   return (
-    <>
       <button
-        className={cnButton({
-          backgroundColor: backgroundColor,
-          textColor: textColor,
-        })}
-        disabled={disabled}
-        onClick={onClick}>{label}
+          ref={ref}
+          className={cnButton({
+              backgroundColor: backgroundColor,
+              textColor: textColor,
+          })}
+          disabled={disabled}
+          onClick={onClick}
+          type={type}
+          {...rest}
+      >
+          {label}
       </button>
-    </>
   )
-}
+})
 
 export default Button;
