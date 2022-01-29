@@ -1,0 +1,22 @@
+.selector-field {
+  width: 350px;
+
+  &__selector {
+    width: 100%;
+
+  }
+
+  &__error {
+    color: red;
+  }
+}
+
+.react-select-container {
+  //border: 1px solid #AAB4B6;
+}
+.react-select__control {
+
+}
+
+.react-select__value-container {
+}
