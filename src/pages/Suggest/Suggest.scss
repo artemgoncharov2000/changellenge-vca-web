@@ -1,0 +1,14 @@
+.suggest-page {
+  display: flex;
+  flex-direction: row;
+  width: 1243px;
+  min-height: 700px;
+  
+
+  &__content {
+    margin-left: 12px;
+    width: 897px;
+    min-height: 800px;
+    background-color: white;
+  }
+}
