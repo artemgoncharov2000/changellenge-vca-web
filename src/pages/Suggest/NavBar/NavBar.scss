@@ -20,7 +20,12 @@
 
     &:hover {
       color: red;
-      border-bottom: 1px solid red;
+      border-bottom: 1px solid #BD0C1E;
+    }
+
+    &_selected {
+      color: red;
+      border-bottom: 1px solid #BD0C1E;
     }
   }
 }

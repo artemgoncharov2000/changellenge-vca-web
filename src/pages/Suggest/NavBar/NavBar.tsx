@@ -22,7 +22,11 @@ const NavBar: FC<PropsT> = ({activeSectionLabel, sectionLabels, nextSectionByNam
                     <div key={`${label}_${index}`} className={''}>
                         <button
                             type="button"
-                            className={'suggest-page-nav-bar__button'}
+                            className={
+                                `suggest-page-nav-bar__button 
+                                 
+                                 ${label === activeSectionLabel ? 'suggest-page-nav-bar__button_selected' : ''}
+                            `}
                             onClick={() => onClick(label)}
                         >
                             {label}
