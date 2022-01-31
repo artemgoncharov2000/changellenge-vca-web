@@ -1,0 +1,56 @@
+.article-card {
+  width: 232px;
+  min-height: 288px;
+  display: flex;
+  flex-direction: column;
+
+  &__image {
+    width: 100%;
+    min-height: 112px;
+    background-size: cover;
+    margin-bottom: 10px;
+  }
+
+  &__subtitle {
+    font-size: 14px;
+    color: #AAB4B6;
+    margin-bottom: 10px;
+  }
+
+  &__title {
+    cursor: pointer;
+    margin-bottom: 10px;
+    font-size: 18px;
+    &:hover {
+      text-decoration: underline;
+      color: #DB182A;
+    }
+  }
+
+  &__description {
+    cursor: pointer;
+    font-size: 12px;
+    margin-bottom: 20px;
+
+    &:hover {
+      text-decoration: underline;
+      color: #DB182A;
+    }
+  }
+}
+
+.article-card-suggest-feedback {
+  &__title {
+    font-size: 11px;
+  }
+
+  &__button {
+    font-size: 11px;
+  }
+
+  &__image {
+    margin: 0 7px;
+    width: 3px;
+    height: 3px;
+  }
+}
