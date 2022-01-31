@@ -1,0 +1,29 @@
+.course-tab {
+  width: 100%;
+  padding: 34px 64px;
+
+  display: flex;
+  flex-direction: column;
+
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  &__button {
+    cursor: pointer;
+    width: 286px;
+    height: 56px;
+
+    background-color: #BD0C1E;
+    border-radius: 5px;
+    border: none;
+    font-size: 24px;
+    color: white;
+  }
+}
+
+.course-tab__content > div {
+  margin-bottom: 45px;
+}
