@@ -2,6 +2,9 @@ import React, {FC, useState} from "react";
 import './Suggest.scss';
 import NavBar from "./NavBar/NavBar";
 import Vacancy from "./Vacancy/Vacancy";
+import Event from "./Event/Event";
+import Course from "./Course/Course";
+import Article from "./Article/Article";
 const testNames = ['Вакансии', 'Мероприятия', 'Курсы', 'Полезные статьи'];
 const Suggest: FC = () => {
 
@@ -26,11 +29,28 @@ const Suggest: FC = () => {
         setActiveTabLabel(testNames[currentIndex]);
     }
 
+    const getCurrentTab = () => {
+        switch (activeTabLabel){
+            case 'Вакансии': {
+                return <Vacancy />;
+            }
+            case 'Мероприятия': {
+                return <Event/>;
+            }
+            case 'Курсы': {
+                return <Course />;
+            }
+            case 'Полезные статьи':
+                return <Article />;
+        }
+
+    }
+
     return (
         <div className={'suggest-page'}>
             <NavBar activeSectionLabel={activeTabLabel} sectionLabels={testNames} nextSectionByName={nextTabByName} />
             <div className={'suggest-page__content'}>
-                <Vacancy />
+                {getCurrentTab()}
             </div>
         </div>
     )
