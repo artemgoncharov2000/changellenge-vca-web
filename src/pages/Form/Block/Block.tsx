@@ -3,7 +3,7 @@ import {IBlockProps} from "./types";
 import map from 'lodash/map';
 import Section from '../Section/Section';
 import './Block.scss';
-import Button from "../../styled-components/Button/Button";
+import Button from "../../../components/styled-components/Button/Button";
 
 const Block: FC<IBlockProps> = (props) => {
     const {

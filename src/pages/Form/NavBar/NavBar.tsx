@@ -25,6 +25,7 @@ const NavBar: FC<PropsT> = ({activeSectionLabel, sectionLabels, nextSectionByNam
         map(sectionLabels, (label, index) => (
           <div key={`${label}_${index}`} className={cnNavItem()}>
             <button
+              type="button"
               className={cnNavItem('Button', {color: label === activeSectionLabel ? "red" : "default"})}
               onClick={() => onClick(label)}
             >
