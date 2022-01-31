@@ -35,6 +35,7 @@ const Vacancy: FC<IVacancyProps> = (props) => {
       <div className={'vacancy-tab'}>
           {map(vacancies, (vacancy, index) =>
               <VacancyCard
+                  key={index}
                   imageUrl={vacancy.imageUrl}
                   title={vacancy.title}
                   city={vacancy.city}
