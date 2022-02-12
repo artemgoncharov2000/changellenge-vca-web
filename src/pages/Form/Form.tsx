@@ -9,6 +9,7 @@ import {getInitialValues} from "../../lib/get-initial-values";
 import Block from "./Block/Block";
 import {ElementTypeT} from "./Element/types";
 import {prepareFormValues} from "../../lib/prepare-form-values";
+import {useNavigate} from "react-router-dom";
 
 const cnForm = cn('Form');
 
@@ -37,6 +38,22 @@ const mock = {
                             title: "Отчество",
                             type: "TEXT_INPUT" as ElementTypeT,
                         }
+                    ]
+                },
+                {
+                    id: 12345,
+                    name: "Место проживание",
+                    elements: [
+                        {
+                            id: 11,
+                            title: "Город",
+                            type: "TEXT_INPUT" as ElementTypeT,
+                        },
+                        {
+                            id: 12,
+                            title: "Улица",
+                            type: "TEXT_INPUT" as ElementTypeT,
+                        },
                     ]
                 }
             ]
@@ -94,7 +111,7 @@ const mock = {
 
 const testNames = ['Базовая информация', 'Образование'];
 const Form = () => {
-
+    const navigate = useNavigate();
     const [activeTabLabel, setActiveTabLabel] = useState<string>(testNames[0]);
     const [activeTabIndex, setActiveTabIndex] = useState<number>(0);
 
@@ -119,6 +136,7 @@ const Form = () => {
     const submitForm = (values: any, actions: FormikHelpers<any>) => {
         const preparedValues = prepareFormValues(values);
         console.log('Data to send', preparedValues);
+        navigate('/feedback');
     }
 
     return (

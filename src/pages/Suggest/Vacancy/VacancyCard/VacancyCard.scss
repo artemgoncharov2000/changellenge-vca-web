@@ -1,0 +1,66 @@
+.vacancy-card {
+  width: 373px;
+  height: 230px;
+  border-radius: 3px;
+  border: 1px solid #000000;
+  padding: 16px 32px;
+
+  &__image {
+    width: 161px;
+    height: 46px;
+    background-size: cover;
+    margin-bottom: 27px;
+  }
+
+
+}
+
+.vacancy-card-title-container {
+
+  &__title {
+    color: black;
+    text-decoration: none;
+    font-size: 16px;
+
+    &:hover {
+      color: red;
+      text-decoration: underline;
+    }
+  }
+}
+
+.vacancy-card-content {
+  height: 37px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  &__image {
+    cursor: pointer;
+    &:hover {
+      fill: red;
+    }
+  }
+}
+
+.vacancy-card-content-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 119px;
+
+  &__link {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.5);
+
+    &:hover {
+      color: red;
+      text-decoration: underline;
+    }
+  }
+
+  &__image {
+    margin-left: 9px;
+    margin-right: 9px;
+  }
+}
