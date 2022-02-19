@@ -14,6 +14,8 @@
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "@types/lodash": "^4.14.177",
+    "@types/react-datepicker": "^4.3.4",
     "axios": "^0.25.0",
     "fireworks": "^2.2.7",
     "formik": "^2.2.9",
@@ -53,9 +55,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@types/lodash": "^4.14.177",
-    "@types/react-datepicker": "^4.3.4"
   }
 }
