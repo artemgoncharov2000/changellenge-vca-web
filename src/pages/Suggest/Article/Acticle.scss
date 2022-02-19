@@ -8,7 +8,6 @@
   &__content {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
   }
 
   &__button {
@@ -26,4 +25,9 @@
 
 .article-tab__content > div {
   margin-bottom: 21px;
+
+}
+
+.article-tab__content > div:not(:nth-child(3)) {
+  margin-right: 33px;
 }

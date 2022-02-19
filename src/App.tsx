@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import Feedback from "./pages/Feedback/Feedback";
 import Suggest from "./pages/Suggest/Suggest";
+import Landing from "./pages/Landing/Landing";
 
 const cnHeader = cn('Header');
 const cnBody = cn('Body');
@@ -23,10 +24,8 @@ function App() {
         <img className={cnHeader('Logo')} src={Logo} alt={'changellenge-logo-white'}/>
       </div>
       <div className={'main'}>
-          <div className={'current-page-title-container'}>
-              <span className={'current-page-title-container__title'}>{"Результаты"}</span>
-          </div>
           <Routes>
+              <Route path="/" element={<Landing/>}/>
               <Route path="/form" element={<Form />}/>
               <Route path="/feedback" element={<Feedback />}/>
               <Route path="/suggest" element={<Suggest />}/>

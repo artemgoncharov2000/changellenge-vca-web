@@ -1,8 +1,10 @@
-import {IElement} from "../Element/types";
+import {IElementProps} from "../Element/types";
+import {ISectionData} from "../../../types/form";
 
-export interface ISection {
-    id: number;
-    name: string;
-    buttonTitle?: 'string';
-    elements: Array<IElement>;
+export interface ISectionProps {
+    sectionData: ISectionData;
+    // id: number;
+    // name: string;
+    // buttonTitle?: 'string';
+    // elements: Array<IElementProps>;
 }

@@ -1,6 +1,7 @@
 export interface IVacancyCardProps {
-    imageUrl: string,
+    thumbnailUrl: string,
     title: string,
-    city: string,
+    location: string,
     companyName: string,
+    link: string,
 }

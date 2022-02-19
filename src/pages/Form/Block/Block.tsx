@@ -7,22 +7,21 @@ import Button from "../../../components/styled-components/Button/Button";
 
 const Block: FC<IBlockProps> = (props) => {
     const {
-        id,
-        name,
-        sections,
+        blockData,
         goBack,
         goNext,
         submitForm,
         isLast,
+        activeTabIndex,
     } = props;
 
     return (
         <div className={'block-container'}>
             {
-                map(sections, (section) => <Section key={section.id} {...section} />)
+                map(blockData.sections, (section) => <Section key={section.id} sectionData={section} />)
             }
             <div className={'block-buttons-container'}>
-                <Button label={"Назад"} onClick={goBack} />
+                {activeTabIndex !== 0 && <Button label={"Назад"} onClick={goBack}/>}
                 {!isLast && <Button label={"Вперед"} onClick={goNext} backgroundColor={'red'}/>}
                 {isLast && <Button label={"Отправить"} backgroundColor={'red'} type="submit" />}
             </div>

@@ -2,43 +2,21 @@ import React, { FC } from 'react';
 import map from 'lodash/map';
 import EventCard from "./EventCard/EventCard";
 import './Event.scss';
-const vacancies = [
-    {
-        imageUrl: 'https://changellenge.com/upload/iblock/291/vmg2eufhboyfyj6alhzryfwf2dezhnhh.png',
-        title: 'Начни строить карьеру на первых курсах',
-        subtitle: 'Сделай первые шаги и получи опыт в топовой компании еще во время учебы',
-        date: '20-03-2022'
-    },
-    {
-        imageUrl: 'https://changellenge.com/upload/iblock/291/vmg2eufhboyfyj6alhzryfwf2dezhnhh.png',
-        title: 'Начни строить карьеру на первых курсах',
-        subtitle: 'Сделай первые шаги и получи опыт в топовой компании еще во время учебы',
-        date: '20-03-2022'
-    },
-    {
-        imageUrl: 'https://changellenge.com/upload/iblock/291/vmg2eufhboyfyj6alhzryfwf2dezhnhh.png',
-        title: 'Начни строить карьеру на первых курсах',
-        subtitle: 'Сделай первые шаги и получи опыт в топовой компании еще во время учебы',
-        date: '20-03-2022'
-    },
-    {
-        imageUrl: 'https://changellenge.com/upload/iblock/291/vmg2eufhboyfyj6alhzryfwf2dezhnhh.png',
-        title: 'Начни строить карьеру на первых курсах',
-        subtitle: 'Сделай первые шаги и получи опыт в топовой компании еще во время учебы',
-        date: '20-03-2022'
-    },
-]
-const Event: FC = () => {
+import useGetEvents from "../../../hooks/use-get-events";
 
+const Event: FC = () => {
+    const events = useGetEvents(0);
     return (
         <div className={'event-tab'}>
-            {map(vacancies, (vacancy, index) =>
+            {map(events, (event) =>
                 <EventCard
-                    key={index}
-                    imageUrl={vacancy.imageUrl}
-                    title={vacancy.title}
-                    subtitle={vacancy.subtitle}
-                    date={vacancy.date}
+                    id={event.id}
+                    key={event.id}
+                    thumbnailUrl={event.thumbnailUrl}
+                    title={event.title}
+                    subtitle={event.subtitle}
+                    date={event.date}
+                    link={event.link}
                 />
             )}
             <button type="button" className={'event-tab__button'}>{"Загрузить еще"}</button>

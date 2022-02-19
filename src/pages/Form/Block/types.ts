@@ -1,11 +1,10 @@
-import {ISection} from "../Section/types";
+import {IBlockData} from "../../../types/form";
 
 export interface IBlockProps {
-    id: number;
-    name: string;
-    sections: Array<ISection>
+    blockData: IBlockData;
     goNext: () => void;
     goBack: () => void;
     submitForm?: () => void;
     isLast?: boolean;
+    activeTabIndex: number;
 }

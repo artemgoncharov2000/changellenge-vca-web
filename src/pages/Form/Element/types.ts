@@ -1,14 +1,5 @@
-export type ElementTypeT =
-    'SELECTOR'             |
-    'INTERVAL_DATE_PICKER' |
-    'TEXT_INPUT'           |
-    'TEXT_AREA'
+import {IElementData} from "../../../types/form";
 
-export interface IElement {
-    id: number;
-    title: string;
-    description?: string;
-    options?: Array<string>;
-    placeholder?: string;
-    type: ElementTypeT;
+export interface IElementProps {
+    elementData: IElementData;
 }

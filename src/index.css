@@ -7,7 +7,7 @@
 @font-face {
   font-family: 'GTWalsheimPro-Bold';
   src: local('GTWalsheimPro-Bold'), url('./assets/fonts/GTWalsheimPro-Bold.ttf') format('truetype');
-  font-weight: auto;
+  font-weight: bold;
 }
 
 @font-face {

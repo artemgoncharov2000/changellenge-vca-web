@@ -1,31 +1,26 @@
 import React, { FC } from 'react';
-import {IElement} from "./types";
+import {IElementProps} from "./types";
 import './Element.scss';
 import InputField from "./InputField/InputField";
 import SelectorField from "./SelectorField/SelectorField";
 import TextArea from "./TextArea/TextArea";
 import DatePicker from "./DatePicker/DatePicker";
 
-const Element: FC<IElement> = (props) => {
+const Element: FC<IElementProps> = (props) => {
     const {
-        id,
-        title,
-        description,
-        options,
-        type,
-        placeholder,
+        elementData
     } = props;
 
     const getInput = () => {
-        switch (type) {
+        switch (elementData.type) {
             case "TEXT_INPUT":
-                return <InputField elemId={id}/>
+                return <InputField elemId={elementData.id}/>
             case "SELECTOR":
-                return <SelectorField elemId={id} options={options ?? []} placeholder={placeholder}/>
+                return <SelectorField elemId={elementData.id} options={elementData.options ?? []} placeholder={elementData.placeholder}/>
             case "TEXT_AREA":
-                return <TextArea elemId={id} />
+                return <TextArea elemId={elementData.id} />
             case "INTERVAL_DATE_PICKER":
-                return <DatePicker elemId={id} isDateRange/>
+                return <DatePicker elemId={elementData.id} isDateRange/>
             default:
                 return null;
         }
@@ -34,8 +29,8 @@ const Element: FC<IElement> = (props) => {
     return (
         <div className={'element'}>
             <div className={'element-text-block'}>
-                <div className={'element-text-block__title'}>{title}</div>
-                {description && <div className={'element-text-block__subtitle'}>{description}</div>}
+                <div className={'element-text-block__title'}>{elementData.title}</div>
+                {elementData.description && <div className={'element-text-block__subtitle'}>{elementData.description}</div>}
             </div>
             {getInput()}
         </div>

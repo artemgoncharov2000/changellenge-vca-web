@@ -48,9 +48,14 @@ const Suggest: FC = () => {
 
     return (
         <div className={'suggest-page'}>
-            <NavBar activeSectionLabel={activeTabLabel} sectionLabels={testNames} nextSectionByName={nextTabByName} />
-            <div className={'suggest-page__content'}>
-                {getCurrentTab()}
+            <div className={'suggest-page-heading'}>
+                <span className={'suggest-page-heading__title'}>{"Результаты"}</span>
+            </div>
+            <div className={'suggest-page-main'}>
+                <NavBar activeSectionLabel={activeTabLabel} sectionLabels={testNames} nextSectionByName={nextTabByName} />
+                <div className={'suggest-page-main__content'}>
+                    {getCurrentTab()}
+                </div>
             </div>
         </div>
     )
