@@ -2,24 +2,43 @@ import React, { FC } from 'react';
 import map from 'lodash/map';
 import EventCard from "./EventCard/EventCard";
 import './Event.scss';
-import useGetEvents from "../../../hooks/use-get-events";
+import { useGetSuggests } from '../../../hooks/use-get-suggests';
+import { EventsT, SuggestTypesEnum } from '../../../types/suggest';
 
 const Event: FC = () => {
-    const events = useGetEvents(0);
+    const {suggests: events, isError, isLoading} = useGetSuggests<EventsT>(SuggestTypesEnum.events, 0);
+
+    const getPageState = () => {
+        if (isLoading) {
+            return <p>{"Загружаем данные..."}</p>;
+        }
+        if (isError) {
+            return <p>{"Ошибка загрузки"}</p>;
+        }
+        if (events) {
+            return (
+                <>
+                    {map(events, (event) =>
+                        <EventCard
+                            id={event.id}
+                            key={event.id}
+                            thumbnailUrl={event.thumbnailUrl}
+                            title={event.title}
+                            subtitle={event.subtitle}
+                            date={event.date}
+                            link={event.link}
+                        />
+                    )}
+                    <button type="button" className={'event-tab__button'}>{"Загрузить еще"}</button>
+                </>
+            )
+        }
+    }
+
+
     return (
         <div className={'event-tab'}>
-            {map(events, (event) =>
-                <EventCard
-                    id={event.id}
-                    key={event.id}
-                    thumbnailUrl={event.thumbnailUrl}
-                    title={event.title}
-                    subtitle={event.subtitle}
-                    date={event.date}
-                    link={event.link}
-                />
-            )}
-            <button type="button" className={'event-tab__button'}>{"Загрузить еще"}</button>
+            {getPageState()}
         </div>
     );
 };
