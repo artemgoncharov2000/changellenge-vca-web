@@ -1,5 +1,8 @@
 import React, {FunctionComponent, useState} from 'react';
+import { useParams } from 'react-router-dom';
 import SuggestFeedback from "../../../../components/styled-components/SuggestFeedback/SuggestFeedback";
+import api from '../../../../lib/api/api-client';
+import { SuggestTypesEnum } from '../../../../types/suggest';
 import './ArticleCard.scss';
 
 interface OwnProps {
@@ -22,7 +25,7 @@ const ArticleCard: FunctionComponent<Props> = (props) => {
       description,
       link,
   } = props;
-
+    const { sessionId } = useParams();
     const [isRelevant, setIsRelevant] = useState<boolean>(true);
 
     const handleChangeIsRelevant = (value: boolean) => {
@@ -33,6 +36,13 @@ const ArticleCard: FunctionComponent<Props> = (props) => {
         return null;
     }
 
+    const handleClickLink = () => {
+        if (!sessionId) {
+            return;
+        }
+        api.sendFeedBack(Number(sessionId), id, SuggestTypesEnum.articles, "READ");
+    }
+        
   return (
       <div className={'article-card'}>
           <img
@@ -41,8 +51,8 @@ const ArticleCard: FunctionComponent<Props> = (props) => {
               alt={thumbnailUrl}
           />
           <div className={'article-card__subtitle'}>{subtitle}</div>
-          <a className={'article-card__title'} target="_blank" href={link}>{title}</a>
-          <a className={'article-card__description'} target="_blank" href={link}>{description}</a>
+          <a className={'article-card__title'} target="_blank" href={link} onClick={handleClickLink}>{title}</a>
+          <a className={'article-card__description'} target="_blank" href={link} onClick={handleClickLink}>{description}</a>
           <SuggestFeedback
             extraTitleClassname={'article-card-suggest-feedback__title'}
             extraButtonClassname={'article-card-suggest-feedback__button'}

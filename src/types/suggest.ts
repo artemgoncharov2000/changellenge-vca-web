@@ -1,8 +1,8 @@
 export enum SuggestTypesEnum {
-    vacancies = "vacancies",
-    events = "events",
-    courses = "courses",
-    articles = "articles"
+    vacancies = "vacancy",
+    events = "event",
+    courses = "course",
+    articles = "article"
 }
 
 export interface IVacancy {

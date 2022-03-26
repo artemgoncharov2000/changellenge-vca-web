@@ -5,9 +5,9 @@ import Vacancy from "./Vacancy/Vacancy";
 import Event from "./Event/Event";
 import Course from "./Course/Course";
 import Article from "./Article/Article";
+import { useParams } from "react-router-dom";
 const testNames = ['Вакансии', 'Мероприятия', 'Курсы', 'Полезные статьи'];
 const Suggest: FC = () => {
-
     const [activeTabLabel, setActiveTabLabel] = useState<string>(testNames[0]);
     const [activeTabIndex, setActiveTabIndex] = useState<number>(0);
 

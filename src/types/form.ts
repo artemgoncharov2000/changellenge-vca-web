@@ -17,6 +17,7 @@ export interface IElementData {
 export interface ISectionData {
     id: number;
     name: string;
+    buttonTitle: string;
     elements: Array<IElementData>;
 }
 
@@ -25,5 +26,3 @@ export interface IBlockData {
     name: string;
     sections: Array<ISectionData>;
 }
-
-export type FormDataT = Array<IBlockData>;

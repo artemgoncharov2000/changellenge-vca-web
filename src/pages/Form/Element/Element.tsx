@@ -21,6 +21,8 @@ const Element: FC<IElementProps> = (props) => {
                 return <TextArea elemId={elementData.id} />
             case "INTERVAL_DATE_PICKER":
                 return <DatePicker elemId={elementData.id} isDateRange/>
+            case "DATE_PICKER":
+                return <DatePicker elemId={elementData.id}/>    
             default:
                 return null;
         }
