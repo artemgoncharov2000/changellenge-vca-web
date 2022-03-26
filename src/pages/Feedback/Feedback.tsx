@@ -5,7 +5,8 @@ import Button from "../../components/styled-components/Button/Button";
 import { useLocation, useNavigate } from "react-router-dom";
 
 export const Feedback = () => {
-        
+    console.log(process.env);
+    
     const state = useLocation().state as {sessionId: number};
     const link = process.env.IS_PROD ? `http://changellege-vca.herokuapp.com/suggest/${state?.sessionId}` : `http://localhost:3000/suggest/${state?.sessionId}`;
     
@@ -27,7 +28,7 @@ export const Feedback = () => {
             <div className={'feedback-page-content'}>
                 <div>{"Форма отправлена!"}</div>
                 <div>{"Перейдите по ссылке, чтобы посмотреть результаты:"}</div>
-                <a className={'feedback-page-content__link'} href={link}>{`http://localhost:3000/suggest/${link}`}</a>
+                <a className={'feedback-page-content__link'} href={link}>{link}</a>
                 {/* <textarea />
                 <Button label={'Отправить фидбэк'} backgroundColor={'red'} /> */}
             </div>
