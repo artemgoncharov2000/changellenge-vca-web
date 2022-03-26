@@ -13,7 +13,12 @@ type PropsT = {
   nextSectionByName: (label: string) => void;
 }
 
-const NavBar: FC<PropsT> = ({activeSectionLabel, sectionLabels, nextSectionByName}) => {
+const NavBar: FC<PropsT> = (props) => {
+  const {
+    activeSectionLabel, 
+    sectionLabels, 
+    nextSectionByName,
+  } = props;
 
   const onClick = (label: string) => {
     nextSectionByName(label);

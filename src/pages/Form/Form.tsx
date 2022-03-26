@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {cn} from '@bem-react/classname';
 import './Form.scss';
 import NavBar from "./NavBar/NavBar";
@@ -69,7 +69,6 @@ const Form = () => {
                 >
                     {
                         () => {
-
                             return (
                                 <FormikForm>
                                     <NavBar

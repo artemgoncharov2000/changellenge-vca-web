@@ -14,7 +14,6 @@ const Block: FC<IBlockProps> = (props) => {
         isLast,
         activeTabIndex,
     } = props;
-    console.log(blockData);
     return (
         <div className={'block-container'}>
             {

@@ -4,7 +4,7 @@ import {IInputField} from "./types";
 import './InputField.scss';
 
 const InputField: FC<IInputField> = ({ elemId }) => {
-    const [field, meta, helpers] = useField(String(elemId));
+    const [field, meta, helpers] = useField(elemId);
 
     const handleChangeValue = (e: ChangeEvent<HTMLInputElement>) => {
         helpers.setValue(e.target.value);
