@@ -2,7 +2,11 @@ import React, {useEffect} from "react";
 import './Feedback.scss';
 import Fireworks from "fireworks/lib/react";
 import Button from "../../components/styled-components/Button/Button";
+import { useLocation, useNavigate } from "react-router-dom";
 export const Feedback = () => {
+    console.log(useLocation());
+    
+    const state = useLocation().state as {sessionId: number};
 
     let fxProps = {
         count: 10,
@@ -14,17 +18,16 @@ export const Feedback = () => {
             y: 200 + Math.random() * 100 - 50 + (i === 2 ? -80 : 0)
         })
     }
-
+    
     return (
         <div className={'feedback-page'}>
             {/*<Fireworks {...fxProps} />*/}
             <div className={'feedback-page-content'}>
                 <div>{"Форма отправлена!"}</div>
                 <div>{"Перейдите по ссылке, чтобы посмотреть результаты:"}</div>
-                <a className={'feedback-page-content__link'} href={'localhost:3001/suggest/123123123'}>{'localhost:3001/suggest/123123123'}</a>
-                <textarea />
-                <Button label={'Отправить форму'} backgroundColor={'red'} />
-                {/*<div className={"secret-label"}>{"(А Артем – лучший фронтендер!!!)"}</div>*/}
+                <a className={'feedback-page-content__link'} href={`localhost:3000/suggest/${state?.sessionId}`}>{`localhost:3000/suggest/${state?.sessionId}`}</a>
+                {/* <textarea />
+                <Button label={'Отправить фидбэк'} backgroundColor={'red'} /> */}
             </div>
         </div>
     )

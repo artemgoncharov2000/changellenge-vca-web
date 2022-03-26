@@ -4,9 +4,9 @@ export const prepareFormValues = (values: any)  => {
     const questionIds = Object.getOwnPropertyNames(values);
     return map(questionIds, (questionId) => {
         if (typeof values[questionId] === 'object') {
-            return {questionId: questionId, answer: [values[questionId]['from'], values[questionId]['to']]};
+            return {id: questionId, answer: [values[questionId]['from'], values[questionId]['to']]};
         }
 
-        return {questionId: questionId, answer: values[questionId]};
+        return {id: Number(questionId), answer: values[questionId]};
     });
 }

@@ -10,16 +10,20 @@ import Block from "./Block/Block";
 import {prepareFormValues} from "../../lib/prepare-form-values";
 import {useNavigate} from "react-router-dom";
 import useFetchForm from "../../hooks/use-fetch-form";
+import api from "../../lib/api/api-client";
+import { IFormApi } from "../../types/api";
 
-const testNames = ['Базовая информация', 'Образование'];
+
 const Form = () => {
     const navigate = useNavigate();
-    const formData = useFetchForm();
-    const [activeTabLabel, setActiveTabLabel] = useState<string>(testNames[0]);
+    const data = useFetchForm();
+    const tabLabels = map(data?.blocks, block => block.name);
+    
+    const [activeTabLabel, setActiveTabLabel] = useState<string>(tabLabels[0]);
     const [activeTabIndex, setActiveTabIndex] = useState<number>(0);
 
     const nextTabByName = (label: string) => {
-        const currentIndex = testNames.indexOf(label)
+        const currentIndex = tabLabels.indexOf(label)
         setActiveTabIndex(currentIndex);
         setActiveTabLabel(label);
     }
@@ -27,21 +31,29 @@ const Form = () => {
     const nextTab = () => {
         const currentIndex = activeTabIndex + 1;
         setActiveTabIndex(currentIndex);
-        setActiveTabLabel(testNames[currentIndex]);
+        setActiveTabLabel(tabLabels[currentIndex]);
     }
 
     const prevTab = () => {
         const currentIndex = activeTabIndex - 1;
         setActiveTabIndex(currentIndex);
-        setActiveTabLabel(testNames[currentIndex]);
+        setActiveTabLabel(tabLabels[currentIndex]);
     }
 
-    const submitForm = (values: any, actions: FormikHelpers<any>) => {
+    const submitForm = async (values: any, actions: FormikHelpers<any>) => {
+        if (!data) {
+            return;
+        }
         const preparedValues = prepareFormValues(values);
-        navigate('/feedback');
+        api.sendForm(data.sessionId, preparedValues);
+        navigate('/feedback', {
+            state: {
+                sessionId: data.sessionId,
+            },
+        });
     }
 
-    if (!formData) {
+    if (!data) {
         return null;
     }
 
@@ -52,7 +64,7 @@ const Form = () => {
             </div>
             <div className={'form-page-content'}>
                 <Formik
-                    initialValues={getInitialValues(formData)}
+                    initialValues={getInitialValues(data?.blocks)}
                     onSubmit={submitForm}
                 >
                     {
@@ -61,17 +73,15 @@ const Form = () => {
                             return (
                                 <FormikForm>
                                     <NavBar
-                                        sectionLabels={testNames}
+                                        sectionLabels={tabLabels}
                                         activeSectionLabel={activeTabLabel}
                                         nextSectionByName={nextTabByName}
                                     />
-
                                     {
-                                        map(formData, (block, index) => {
+                                        map(data.blocks, (block, index) => {
                                             if (block.name !== activeTabLabel) {
                                                 return null;
                                             }
-
                                             return (
                                                 <Tab
                                                     key={block.name}
@@ -79,14 +89,14 @@ const Form = () => {
                                                     nextSection={nextTab}
                                                     prevSection={prevTab}
                                                     currentIndex={activeTabIndex}
-                                                    maxIndex={testNames.length - 1}
+                                                    maxIndex={tabLabels.length - 1}
                                                 >
                                                     <Block
                                                         blockData={block}
                                                         key={block.id}
                                                         goNext={nextTab}
                                                         goBack={prevTab}
-                                                        isLast={index === formData?.length - 1}
+                                                        isLast={index === data?.blocks?.length - 1}
                                                         activeTabIndex={activeTabIndex}
                                                     />
                                                 </Tab>

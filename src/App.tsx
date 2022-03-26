@@ -23,7 +23,7 @@ function App() {
               <Route path="/" element={<Landing/>}/>
               <Route path="/form" element={<Form />}/>
               <Route path="/feedback" element={<Feedback />}/>
-              <Route path="/suggest" element={<Suggest />}/>
+              <Route path="/suggest/:sessionId" element={<Suggest />}/>
           </Routes>
       </main>
     </div>

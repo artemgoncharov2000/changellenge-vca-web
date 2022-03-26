@@ -1,9 +1,9 @@
 import {useEffect, useState} from "react";
-import {api} from "../lib/api/api-client";
-import { FormDataT } from '../types/form';
+import api from "../lib/api/api-client";
+import { IFormApi } from "../types/api";
 
-const useFetchForm = (): FormDataT | null => {
-    const [formData, setFormData] = useState<FormDataT>();
+const useFetchForm = (): IFormApi | null => {
+    const [formData, setFormData] = useState<IFormApi>();
 
     useEffect(() => {
         api.getForm()

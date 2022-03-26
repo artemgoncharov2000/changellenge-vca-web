@@ -24,7 +24,6 @@ const VacancyCard: FC<IVacancyCardProps> = (props) => {
         return null;
     }
 
-
     return (
         <div className={'vacancy-card'}>
             <div
