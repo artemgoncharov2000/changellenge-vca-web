@@ -1,5 +1,5 @@
 export interface ISelectorFieldProps {
-    elemId: number;
+    elemId: string;
     options: Array<string>;
     placeholder?: string;
 }

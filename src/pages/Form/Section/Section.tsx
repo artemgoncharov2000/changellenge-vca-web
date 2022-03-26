@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import {ISectionProps} from "./types";
 import map from 'lodash/map';
 import Element from "../Element/Element";
@@ -7,23 +7,37 @@ import './Section.scss';
 
 const Section: FC<ISectionProps> = (props) => {
     const {
-        sectionData
+        sectionData,
     } = props;
+
+    const [groups, setGroups] = useState([[...sectionData.elements]]);
+
+    const addGroup = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        e.preventDefault();
+        const newGroups = [...groups];
+        const newGroup = [...sectionData.elements];
+        newGroups.push(newGroup);
+        setGroups(newGroups);
+    }
 
     return (
         <div className={'section'}>
             <div className={'section__title'}>{sectionData.name}</div>
-            <div className={'section__content'}>
-                {
-                    map(sectionData.elements, (element) => <Element key={element.id} elementData={element} />)
-                }
-            </div>
-            {/*{buttonTitle && (*/}
-            {/*    <button className={'section__button'}>*/}
-            {/*        <img src={PlusIcon} alt={'plus-icon'}/>*/}
-            {/*        <span>{buttonTitle}</span>*/}
-            {/*    </button>*/}
-            {/*)}*/}
+            {
+                map(groups, (group, groupIndex) => (
+                    <div key={groupIndex} className={'section__content'}>
+                        {
+                            map(group, (element) => <Element key={element.id} elemId={`${sectionData.id}.${groupIndex}.${element.id}`} elementData={element} />)
+                        }
+                    </div>
+                ))
+            }
+            {sectionData?.buttonTitle && (
+                <button className={'section__button'} onClick={addGroup}>
+                    <img src={PlusIcon} alt={'plus-icon'}/>
+                    <span>{sectionData?.buttonTitle}</span>
+                </button>
+            )}
         </div>
     )
 }

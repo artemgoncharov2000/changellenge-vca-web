@@ -1,3 +1,3 @@
 export interface ITextAreaProps {
-    elemId: number;
+    elemId: string;
 }

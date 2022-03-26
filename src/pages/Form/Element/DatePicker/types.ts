@@ -1,4 +1,4 @@
 export interface IDatePickerProps {
-    elemId: number;
+    elemId: string;
     isDateRange?: boolean;
 }

@@ -25,7 +25,7 @@ export const Feedback = () => {
             <div className={'feedback-page-content'}>
                 <div>{"Форма отправлена!"}</div>
                 <div>{"Перейдите по ссылке, чтобы посмотреть результаты:"}</div>
-                <a className={'feedback-page-content__link'} href={`localhost:3000/suggest/${state?.sessionId}`}>{`localhost:3000/suggest/${state?.sessionId}`}</a>
+                <a className={'feedback-page-content__link'} href={`http://localhost:3000/suggest/${state?.sessionId}`}>{`http://localhost:3000/suggest/${state?.sessionId}`}</a>
                 {/* <textarea />
                 <Button label={'Отправить фидбэк'} backgroundColor={'red'} /> */}
             </div>

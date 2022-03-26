@@ -8,21 +8,23 @@ import DatePicker from "./DatePicker/DatePicker";
 
 const Element: FC<IElementProps> = (props) => {
     const {
-        elementData
+        elementData,
+        elemId
     } = props;
-
+    console.log(elemId);
+    
     const getInput = () => {
         switch (elementData.type) {
             case "TEXT_INPUT":
-                return <InputField elemId={elementData.id}/>
+                return <InputField elemId={elemId}/>
             case "SELECTOR":
-                return <SelectorField elemId={elementData.id} options={elementData.options ?? []} placeholder={elementData.placeholder}/>
+                return <SelectorField elemId={elemId} options={elementData.options ?? []} placeholder={elementData.placeholder}/>
             case "TEXT_AREA":
-                return <TextArea elemId={elementData.id} />
+                return <TextArea elemId={elemId} />
             case "INTERVAL_DATE_PICKER":
-                return <DatePicker elemId={elementData.id} isDateRange/>
+                return <DatePicker elemId={elemId} isDateRange/>
             case "DATE_PICKER":
-                return <DatePicker elemId={elementData.id}/>    
+                return <DatePicker elemId={elemId}/>    
             default:
                 return null;
         }
