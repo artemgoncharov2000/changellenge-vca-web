@@ -1,24 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import Logo from './assets/logo/changellenge-logo-white.png';
+import Form from "./pages/Form/Form";
+import {
+    Routes,
+    Route, Link,
+} from "react-router-dom";
+import Feedback from "./pages/Feedback/Feedback"
+import Suggest from "./pages/Suggest/Suggest";
+import Landing from "./pages/Landing/Landing";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className={'app'}>
+      <header className={'header'}>
+          <Link to={'/'} target="_blank">
+              <img className={'header-logo'} src={Logo} alt={'changellenge-logo-white'}/>
+          </Link>
       </header>
+      <main className={'main'}>
+          <Routes>
+              <Route path="/" element={<Landing/>}/>
+              <Route path="/form" element={<Form />}/>
+              <Route path="/feedback" element={<Feedback />}/>
+              <Route path="/suggest/:sessionId" element={<Suggest />}/>
+          </Routes>
+      </main>
     </div>
   );
 }

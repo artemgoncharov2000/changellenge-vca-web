@@ -1,0 +1,12 @@
+.text-area-wrapper {
+  width: 350px;
+
+  &__text-area {
+    width: 100%;
+    min-height: 167px;
+    border: 1px solid #AAB4B6;
+    resize: none;
+
+    padding: 2px 8px;
+  }
+}

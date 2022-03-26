@@ -1,0 +1,21 @@
+.element {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.element-text-block {
+  width: 150px;
+  &__title {
+    font-size: 16px;
+    font-weight: normal;
+    margin-bottom: 10px;
+  }
+
+  &__subtitle {
+    font-size: 12px;
+    font-weight: normal;
+    color: #AAB4B6;
+  }
+}

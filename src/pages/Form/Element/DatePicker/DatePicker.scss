@@ -1,0 +1,32 @@
+.date-picker-wrapper {
+  width: 350px;
+  display: flex;
+  flex-direction: row;
+
+
+
+  &__divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    margin: 0 4px;
+    color: #AAB4B6;
+  }
+}
+
+.date-picker_input-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px;
+
+  height: 35px;
+  border: 1px solid #AAB4B6;
+
+
+  &__value {
+    font-size: 14px;
+    background: none;
+  }
+}

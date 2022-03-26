@@ -1,0 +1,40 @@
+.suggest-page {
+  display: flex;
+  flex-direction: column;
+  width: 1243px;
+  min-height: 700px;
+  margin: 20px 100px;
+
+}
+
+.suggest-page-main {
+  display: flex;
+  flex-direction: row;
+
+  &__content {
+    margin-left: 12px;
+    width: 897px;
+    min-height: 800px;
+    background-color: white;
+  }
+}
+
+.suggest-page-heading {
+  position: relative;
+  margin-bottom: 20px;
+  align-self: flex-start;
+  border-bottom: 67px solid #BD0C1E;
+
+  border-right: 80px solid transparent;
+  height: 67px;
+  width: 279px;
+
+
+  &__title {
+    position: absolute;
+    font-size: 24px;
+    color: white;
+    left: 50px;
+    bottom: -45px;
+  }
+}

@@ -1,0 +1,28 @@
+.form-page {
+  margin: 20px 100px;
+}
+
+.form-page-heading {
+  position: relative;
+  margin-bottom: 20px;
+  align-self: flex-start;
+  border-bottom: 67px solid #BD0C1E;
+
+  border-right: 80px solid transparent;
+  height: 67px;
+  width: 279px;
+
+
+  &__title {
+    position: absolute;
+    font-size: 24px;
+    color: white;
+    left: 50px;
+    bottom: -45px;
+  }
+}
+
+.form-page-content {
+  background-color: white;
+  height: 805px;
+}

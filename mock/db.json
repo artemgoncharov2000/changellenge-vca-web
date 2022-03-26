@@ -1,0 +1,184 @@
+{
+  "form": [
+    {
+      "id": 123,
+      "name": "Базовая информация",
+      "sections": [
+        {
+          "id": 1234,
+          "name": "Личные данные",
+          "elements": [
+            {
+              "id": 1,
+              "title": "Имя",
+              "type": "TEXT_INPUT"
+            },
+            {
+              "id": 2,
+              "title": "Фамилия",
+              "type": "TEXT_INPUT"
+            },
+            {
+              "id": 3,
+              "title": "Отчество",
+              "type": "TEXT_INPUT"
+            }
+          ]
+        },
+        {
+          "id": 12345,
+          "name": "Место проживание",
+          "elements": [
+            {
+              "id": 11,
+              "title": "Город",
+              "type": "TEXT_INPUT"
+            },
+            {
+              "id": 12,
+              "title": "Улица",
+              "type": "TEXT_INPUT"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1245,
+      "name": "Образование",
+      "sections": [
+        {
+          "id": 1327676,
+          "name": "Учебное заведение",
+          "elements": [
+            {
+              "id": 4,
+              "title": "Тип учебного заведения",
+              "options": [
+                "Среднеспециальное учебное заведение",
+                "Высшее учебное заведение"
+              ],
+              "placeholder": "Выберете тип учебного заведения",
+              "type": "SELECTOR"
+            },
+            {
+              "id": 5,
+              "title": "Даты обучения",
+              "type": "INTERVAL_DATE_PICKER"
+            },
+            {
+              "id": 6,
+              "title": "Название",
+              "type": "TEXT_INPUT"
+            },
+            {
+              "id": 7,
+              "title": "Факультет",
+              "type": "TEXT_INPUT"
+            },
+            {
+              "id": 8,
+              "title": "Специализация",
+              "type": "TEXT_INPUT"
+            },
+            {
+              "id": 9,
+              "title": "Достижения в этом учебном заведении",
+              "description": "В этом поле, пожалуйста, укажите, если у вас есть красный диплом, именная стипендия или, например, вы победили на внутреннем конкурсе курсовых проектов.",
+              "type": "TEXT_AREA"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "vacancies": [
+    {
+      "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Yandex_logo_2021_Russian.svg/512px-Yandex_logo_2021_Russian.svg.png",
+      "title": "Тестировщик по автоматизированному тестированияю (QA Automation Engineer)",
+      "location": "Москва",
+      "companyName": "Яндекс",
+      "link": "https://www.yandex.ru"
+    },
+    {
+      "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Yandex_logo_2021_Russian.svg/512px-Yandex_logo_2021_Russian.svg.png",
+      "title": "Тестировщик по автоматизированному тестированияю (QA Automation Engineer)",
+      "location": "Москва",
+      "companyName": "Яндекс",
+      "link": "https://www.yandex.ru"
+    },
+    {
+      "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Yandex_logo_2021_Russian.svg/512px-Yandex_logo_2021_Russian.svg.png",
+      "title": "Тестировщик по автоматизированному тестированияю (QA Automation Engineer)",
+      "location": "Москва",
+      "companyName": "Яндекс",
+      "link": "https://www.yandex.ru"
+    },
+    {
+      "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Yandex_logo_2021_Russian.svg/512px-Yandex_logo_2021_Russian.svg.png",
+      "title": "Тестировщик по автоматизированному тестированияю (QA Automation Engineer)",
+      "location": "Москва",
+      "companyName": "Яндекс",
+      "link": "https://www.yandex.ru"
+    }
+  ],
+  "events": [
+    {
+      "thumbnailUrl": "https://changellenge.com/upload/iblock/291/vmg2eufhboyfyj6alhzryfwf2dezhnhh.png",
+      "title": "Начни строить карьеру на первых курсах",
+      "subtitle": "Сделай первые шаги и получи опыт в топовой компании еще во время учебы",
+      "date": "20-03-2022",
+      "link": "https://changellenge.com"
+    },
+    {
+      "thumbnailUrl": "https://changellenge.com/upload/iblock/291/vmg2eufhboyfyj6alhzryfwf2dezhnhh.png",
+      "title": "Начни строить карьеру на первых курсах",
+      "subtitle": "Сделай первые шаги и получи опыт в топовой компании еще во время учебы",
+      "date": "20-03-2022",
+      "link": "https://changellenge.com"
+    }
+  ],
+  "courses": [
+    {
+      "thumbnailUrl": "https://www.idownloadblog.com/wp-content/uploads/2020/10/Resonance_Blue_Light-428w-926h@3xiphone.png",
+      "title": "Профессия финансового аналитика",
+      "subtitle": "Образовательная программа для тех, кто хочет стать востребованным специалистом и принимать решения, благодаря которым бизнес сможет рассчитывать на эффективность и прибыльность. Вы научитесь анализировать данные, составлять финансовые модели и прогнозировать развитие компании.",
+      "link": "https://yandex.ru"
+    },
+    {
+      "thumbnailUrl": "https://www.idownloadblog.com/wp-content/uploads/2020/10/Resonance_Blue_Light-428w-926h@3xiphone.png",
+      "title": "Профессия финансового аналитика",
+      "subtitle": "Образовательная программа для тех, кто хочет стать востребованным специалистом и принимать решения, благодаря которым бизнес сможет рассчитывать на эффективность и прибыльность. Вы научитесь анализировать данные, составлять финансовые модели и прогнозировать развитие компании.",
+      "link": "https://yandex.ru"
+    },
+    {
+      "thumbnailUrl": "https://www.idownloadblog.com/wp-content/uploads/2020/10/Resonance_Blue_Light-428w-926h@3xiphone.png",
+      "title": "Профессия финансового аналитика",
+      "subtitle": "Образовательная программа для тех, кто хочет стать востребованным специалистом и принимать решения, благодаря которым бизнес сможет рассчитывать на эффективность и прибыльность. Вы научитесь анализировать данные, составлять финансовые модели и прогнозировать развитие компании.",
+      "link": "https://yandex.ru"
+    }
+  ],
+  "articles": [
+    {
+      "imageUrl": "https://media-exp1.licdn.com/dms/image/C5612AQEHgsNz8br1cw/article-cover_image-shrink_600_2000/0/1614186250331?e=1644451200&v=beta&t=BhEzBuYTuSV1Eo6O9vdV7qJXVi6u-WjSydUi4Uf5NHo",
+      "title": "Тестировщик по автоматизированному тестированияю (QA Automation Engineer)",
+      "description": "Говорим про пять самых распространенных причин, по которым отказывают в трудоустройстве.",
+      "subtitle": "#мы_вам_перезвоним",
+      "link": "https://yandex.ru"
+    },
+    {
+      "imageUrl": "https://media-exp1.licdn.com/dms/image/C5612AQEHgsNz8br1cw/article-cover_image-shrink_600_2000/0/1614186250331?e=1644451200&v=beta&t=BhEzBuYTuSV1Eo6O9vdV7qJXVi6u-WjSydUi4Uf5NHo",
+      "title": "Тестировщик по автоматизированному тестированияю (QA Automation Engineer)",
+      "description": "Говорим про пять самых распространенных причин, по которым отказывают в трудоустройстве.",
+      "subtitle": "#мы_вам_перезвоним",
+      "link": "https://yandex.ru"
+    },
+    {
+      "imageUrl": "https://media-exp1.licdn.com/dms/image/C5612AQEHgsNz8br1cw/article-cover_image-shrink_600_2000/0/1614186250331?e=1644451200&v=beta&t=BhEzBuYTuSV1Eo6O9vdV7qJXVi6u-WjSydUi4Uf5NHo",
+      "title": "Тестировщик по автоматизированному тестированияю (QA Automation Engineer)",
+      "description": "Говорим про пять самых распространенных причин, по которым отказывают в трудоустройстве.",
+      "subtitle": "#мы_вам_перезвоним",
+      "link": "https://yandex.ru"
+    }
+  ]
+}
