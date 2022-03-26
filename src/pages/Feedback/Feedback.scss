@@ -15,16 +15,12 @@
   align-items: center;
   justify-content: space-evenly;
   background: white;
-  width: 500px;
+  min-width: 500px;
   height: 200px;
 
   padding: 20px 40px;
 
   border-radius: 15px;
-
-  &__link {
-    background-color: gray;
-  }
 }
 
 .secret-label {
