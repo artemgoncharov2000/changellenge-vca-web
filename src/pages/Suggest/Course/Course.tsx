@@ -30,7 +30,6 @@ const Course: FC = () => {
                             />
                         )}
                     </div>
-                    <button type="button" className={'course-tab__button'}>{"Загрузить еще"}</button>
                 </>
             )
         }

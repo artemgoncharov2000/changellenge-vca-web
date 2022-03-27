@@ -32,7 +32,6 @@ const Article: FC = () => {
                             />
                         )}
                     </div>
-            <button type="button" className={'article-tab__button'}>{"Загрузить еще"}</button>
                 </>
             )
         }

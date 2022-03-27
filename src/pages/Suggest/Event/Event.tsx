@@ -29,7 +29,6 @@ const Event: FC = () => {
                             link={event.link}
                         />
                     )}
-                    <button type="button" className={'event-tab__button'}>{"Загрузить еще"}</button>
                 </>
             )
         }
