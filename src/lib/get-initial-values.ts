@@ -2,13 +2,19 @@
 import forEach from "lodash/forEach";
 import { IBlockData } from "../types/form";
 
+export type InitialValuesT = {
+    [sessionId: number]: Array<{
+        [elemId: number]: string
+    }>
+}
+
 export const getInitialValues = (data: Array<IBlockData>) => {
-    const initialValues: any = {}
+    const initialValues: InitialValuesT = {}
     forEach(data, block => {
         const { sections } = block;
         forEach(sections, section => {
             const { elements, id: sectionId } = section;
-            const elementData: any = {};
+            const elementData: {[elemId: number]: string} = {};
             forEach(elements, element => {
                 const { id, type } = element;
 
