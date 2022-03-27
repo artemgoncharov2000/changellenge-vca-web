@@ -5,27 +5,35 @@ import NavBar from "./NavBar/NavBar";
 import map from 'lodash/map';
 import Tab from "./Tab/Tab";
 import {Formik, Form as FormikForm, FormikHelpers} from 'formik';
-import {getInitialValues} from "../../lib/get-initial-values";
+import {getInitialValues, InitialValuesT} from "../../lib/get-initial-values";
 import Block from "./Block/Block";
 import {prepareFormValues} from "../../lib/prepare-form-values";
 import {useNavigate} from "react-router-dom";
 import useFetchForm from "../../hooks/use-fetch-form";
 import api from "../../lib/api/api-client";
 import { IFormApi } from "../../types/api";
+import { IBlockData } from "../../types/form";
 
 
 const Form = () => {
     const navigate = useNavigate();
     const data = useFetchForm();
     
+    const [initialValues, setInitialValues] = useState<InitialValuesT>({});
     const [tabLabels, setTabLabels] = useState<Array<string>>([]);
     const [activeTabLabel, setActiveTabLabel] = useState<string>('');
     const [activeTabIndex, setActiveTabIndex] = useState<number>(0);
 
     useEffect(() => {
+        if (!data) {
+            return;
+        }
+
         const tabLabels = map(data?.blocks, block => block.name);
         setTabLabels(tabLabels);
         setActiveTabLabel(tabLabels[0]);
+        const initialValues = getInitialValues(data?.blocks);
+        setInitialValues(initialValues);
     }, [data])
 
     const nextTabByName = (label: string) => {
@@ -62,6 +70,12 @@ const Form = () => {
             })
     }
 
+    const updateInitialValues = (sessionId: number, data: {[elemId: number]: string}) => {
+        const newInitialValues = {...initialValues};
+        newInitialValues[sessionId].push(data);
+        setInitialValues(newInitialValues);
+    }
+
     if (!data) {
         return null;
     }
@@ -73,7 +87,7 @@ const Form = () => {
             </div>
             <div className={'form-page-content'}>
                 <Formik
-                    initialValues={getInitialValues(data?.blocks)}
+                    initialValues={initialValues}
                     enableReinitialize
                     onSubmit={submitForm}
                 >
@@ -104,6 +118,7 @@ const Form = () => {
                                                     maxIndex={tabLabels.length - 1}
                                                 >
                                                     <Block
+                                                        updateInitialValues={updateInitialValues}
                                                         blockData={block}
                                                         key={block.id}
                                                         goNext={nextTab}

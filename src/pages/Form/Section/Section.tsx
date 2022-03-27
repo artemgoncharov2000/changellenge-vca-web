@@ -8,6 +8,7 @@ import './Section.scss';
 const Section: FC<ISectionProps> = (props) => {
     const {
         sectionData,
+        updateInitialValues
     } = props;
 
     const [groups, setGroups] = useState([[...sectionData.elements]]);
@@ -18,6 +19,13 @@ const Section: FC<ISectionProps> = (props) => {
         const newGroup = [...sectionData.elements];
         newGroups.push(newGroup);
         setGroups(newGroups);
+
+        const data: {[elemId: number]: string} = {}
+        newGroup.forEach(elem => {
+            data[elem.id] = '';
+        })
+
+        updateInitialValues(sectionData.id, data);
     }
 
     return (
@@ -43,3 +51,7 @@ const Section: FC<ISectionProps> = (props) => {
 }
 
 export default Section;
+
+function forEach() {
+    throw new Error("Function not implemented.");
+}
