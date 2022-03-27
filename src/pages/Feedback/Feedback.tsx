@@ -8,7 +8,7 @@ export const Feedback = () => {
     console.log(process.env);
     
     const state = useLocation().state as {sessionId: number};
-    const link = process.env.IS_PROD ? `http://changellege-vca.herokuapp.com/suggest/${state?.sessionId}` : `http://localhost:3000/suggest/${state?.sessionId}`;
+    const link = `http://changellege-vca.herokuapp.com/suggest/${state?.sessionId}`;
     
 
     const fxProps = {
