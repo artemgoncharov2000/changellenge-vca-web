@@ -11,7 +11,6 @@ const Element: FC<IElementProps> = (props) => {
         elementData,
         elemId
     } = props;
-    console.log(elemId);
     
     const getInput = () => {
         switch (elementData.type) {
