@@ -1,4 +1,5 @@
 .suggest-page-nav-bar {
+  position: relative;
   width: 334px;
 
   background-color: white;
@@ -27,5 +28,12 @@
       color: red;
       border-bottom: 1px solid #BD0C1E;
     }
+  }
+
+  &_feedback-link {
+    position: absolute;
+    bottom: 20px;
+    text-decoration: none;
+    color: red;
   }
 }
