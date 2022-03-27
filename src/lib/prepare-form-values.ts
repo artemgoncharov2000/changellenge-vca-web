@@ -8,6 +8,13 @@ export const prepareFormValues = (values: any)  => {
     forEach(sectionIds, sectionId => {
         forEach(values[sectionId], answerGroup => {
             forEach(Object.getOwnPropertyNames(answerGroup), answerId => {
+                if (typeof answerGroup[answerId] === 'object') {
+                    results.push({
+                        id: answerId,
+                        answer: answerGroup[answerId].from,
+                    });
+                    return;
+                }
                 results.push({
                     id: answerId,
                     answer: answerGroup[answerId],

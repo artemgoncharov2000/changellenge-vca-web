@@ -34,6 +34,7 @@ const NavBar: FC<PropsT> = ({activeSectionLabel, sectionLabels, nextSectionByNam
                     </div>
                 ))
             }
+            <a target="_blank" className='suggest-page-nav-bar_feedback-link' href='https://forms.yandex.ru/u/624055902e9d2ab7b0e2a8b0/'>Расскажите о своих впечатлениях</a>
         </div>
     )
 }
