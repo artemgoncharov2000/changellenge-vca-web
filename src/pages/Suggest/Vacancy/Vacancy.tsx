@@ -30,7 +30,6 @@ const Vacancy: FC<IVacancyProps> = () => {
                         link={vacancy.link}
                     />
                 )}
-                <button type="button" className={'vacancy-tab__button'}>{"Загрузить еще"}</button>
               </>
           )
       }

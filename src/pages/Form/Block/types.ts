@@ -7,4 +7,5 @@ export interface IBlockProps {
     submitForm?: () => void;
     isLast?: boolean;
     activeTabIndex: number;
+    updateInitialValues: (sessionId: number, data: {[elemId: number]: string}) => void;
 }

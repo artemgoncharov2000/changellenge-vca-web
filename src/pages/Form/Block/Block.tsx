@@ -10,14 +10,14 @@ const Block: FC<IBlockProps> = (props) => {
         blockData,
         goBack,
         goNext,
-        submitForm,
         isLast,
         activeTabIndex,
+        updateInitialValues,
     } = props;
     return (
         <div className={'block-container'}>
             {
-                map(blockData.sections, (section) => <Section key={section.id} sectionData={section} />)
+                map(blockData.sections, (section) => <Section updateInitialValues={updateInitialValues} key={section.id} sectionData={section} />)
             }
             <div className={'block-buttons-container'}>
                 {activeTabIndex !== 0 && <Button label={"Назад"} onClick={goBack}/>}
