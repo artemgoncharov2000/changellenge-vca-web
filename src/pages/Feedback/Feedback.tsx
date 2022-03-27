@@ -5,6 +5,7 @@ import Button from "../../components/styled-components/Button/Button";
 import { useLocation, useNavigate } from "react-router-dom";
 export const Feedback = () => {
     const state = useLocation().state as {sessionId: number};
+    console.log(process.env);
     const link = process.env.IS_PROD ? `http://changellege-vca.herokuapp.com/suggest/${state?.sessionId}` : `http://localhost:3000/suggest/${state?.sessionId}`;
     const fxProps = {
         count: 10,
