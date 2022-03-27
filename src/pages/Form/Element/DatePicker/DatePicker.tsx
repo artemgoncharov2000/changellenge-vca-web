@@ -56,7 +56,7 @@ const DatePicker: FC<IDatePickerProps> = (props) => {
                 selected={field.value ? new Date(field.value.from) : new Date()}
                 startDate={field.value ? new Date(field.value.from) : new Date()}
                 endDate={field.value ? new Date(field.value.to) : new Date()}
-                selectsStart
+                selectsStart = {isDateRange}
                 onChange={handleChangeStartDate}
                 locale="ru"
                 closeOnScroll={true}
