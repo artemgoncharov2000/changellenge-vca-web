@@ -17,10 +17,16 @@ import { IFormApi } from "../../types/api";
 const Form = () => {
     const navigate = useNavigate();
     const data = useFetchForm();
-    const tabLabels = map(data?.blocks, block => block.name);
     
-    const [activeTabLabel, setActiveTabLabel] = useState<string>(tabLabels[0]);
+    const [tabLabels, setTabLabels] = useState<Array<string>>([]);
+    const [activeTabLabel, setActiveTabLabel] = useState<string>('');
     const [activeTabIndex, setActiveTabIndex] = useState<number>(0);
+
+    useEffect(() => {
+        const tabLabels = map(data?.blocks, block => block.name);
+        setTabLabels(tabLabels);
+        setActiveTabLabel(tabLabels[0]);
+    }, [data])
 
     const nextTabByName = (label: string) => {
         const currentIndex = tabLabels.indexOf(label)
@@ -65,6 +71,7 @@ const Form = () => {
             <div className={'form-page-content'}>
                 <Formik
                     initialValues={getInitialValues(data?.blocks)}
+                    enableReinitialize
                     onSubmit={submitForm}
                 >
                     {
@@ -78,6 +85,9 @@ const Form = () => {
                                     />
                                     {
                                         map(data.blocks, (block, index) => {
+                                            console.log('block.name: ', block.name);
+                                            console.log('activeTabeLabel: ', activeTabLabel);
+                                            
                                             if (block.name !== activeTabLabel) {
                                                 return null;
                                             }
