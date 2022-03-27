@@ -46,17 +46,20 @@ const Form = () => {
         setActiveTabLabel(tabLabels[currentIndex]);
     }
 
-    const submitForm = async (values: any, actions: FormikHelpers<any>) => {
+    const submitForm = (values: any, actions: FormikHelpers<any>) => {
         if (!data) {
             return;
         }
         const preparedValues = prepareFormValues(values);
-        api.sendForm(data.sessionId, preparedValues);
-        navigate('/feedback', {
-            state: {
-                sessionId: data.sessionId,
-            },
-        });
+        console.log('preparedValues', preparedValues);
+        api.sendForm(data.sessionId, preparedValues)
+            .then(() => {
+                navigate('/feedback', {
+                    state: {
+                        sessionId: data.sessionId,
+                    },
+                });
+            })
     }
 
     if (!data) {

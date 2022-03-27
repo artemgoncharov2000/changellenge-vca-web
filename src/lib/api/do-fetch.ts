@@ -33,7 +33,6 @@ export async function doFetch({
     const fullPath = END_POINT + url;
 
     try {
-        // console.log('data: ', JSON.stringify(data))
         let response = await axios({
             url: fullPath,
             method: method,

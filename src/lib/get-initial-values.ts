@@ -26,7 +26,6 @@ export const getInitialValues = (data: Array<IBlockData>) => {
             initialValues[sectionId] = [elementData];
         })
     })
-    console.log('initialValues', initialValues);
     
     return initialValues;
 }
