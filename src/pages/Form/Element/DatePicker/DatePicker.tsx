@@ -11,6 +11,13 @@ import DateIcon from '../../../../assets/icons/calendar-icon.svg';
 
 registerLocale('ru', ru);
 
+const validateInput = (value: string) => {
+    let error;
+    if (value === '') {
+        error = 'Обязательное поле';
+    }
+    return error;
+}
 
 const DatePicker: FC<IDatePickerProps> = (props) => {
     const {

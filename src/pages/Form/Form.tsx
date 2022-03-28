@@ -105,9 +105,6 @@ const Form = () => {
                                             console.log('block.name: ', block.name);
                                             console.log('activeTabeLabel: ', activeTabLabel);
                                             
-                                            if (block.name !== activeTabLabel) {
-                                                return null;
-                                            }
                                             return (
                                                 <Tab
                                                     key={block.name}
@@ -125,6 +122,7 @@ const Form = () => {
                                                         goBack={prevTab}
                                                         isLast={index === data?.blocks?.length - 1}
                                                         activeTabIndex={activeTabIndex}
+                                                        visible={block.name !== activeTabLabel}
                                                     />
                                                 </Tab>
                                             )

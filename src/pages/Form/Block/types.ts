@@ -2,6 +2,7 @@ import {IBlockData} from "../../../types/form";
 
 export interface IBlockProps {
     blockData: IBlockData;
+    visible: boolean;
     goNext: () => void;
     goBack: () => void;
     submitForm?: () => void;

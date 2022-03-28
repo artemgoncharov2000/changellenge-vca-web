@@ -13,9 +13,15 @@ const Block: FC<IBlockProps> = (props) => {
         isLast,
         activeTabIndex,
         updateInitialValues,
+        visible,
     } = props;
     return (
-        <div className={'block-container'}>
+        <div 
+            className={'block-container'}
+            style={{
+                display: visible ? 'none' : '',
+            }}
+        >
             {
                 map(blockData.sections, (section) => <Section updateInitialValues={updateInitialValues} key={section.id} sectionData={section} />)
             }
