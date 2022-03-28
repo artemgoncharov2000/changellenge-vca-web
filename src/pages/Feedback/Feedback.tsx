@@ -1,30 +1,17 @@
-import React, {useEffect} from "react";
+import React from "react";
 import './Feedback.scss';
-import Fireworks from "fireworks/lib/react";
-import Button from "../../components/styled-components/Button/Button";
 import { useLocation, useNavigate } from "react-router-dom";
-export const Feedback = () => {
+
+export const Feedback: React.FC = () => {
     const state = useLocation().state as {sessionId: number};
     const link = `http://changellege-vca.herokuapp.com/suggest/${state?.sessionId}`;
-
-    const fxProps = {
-        count: 10,
-        interval: 1200,
-        colors: ['#47B881', '#1070CA', '#00783E'],
-        calc: (props: any, i: number) => ({
-            ...props,
-            x: (window.innerWidth / 3) * 2 - ((i + 1) % 5) * 100,
-            y: 200 + Math.random() * 100 - 50 + (i === 2 ? -80 : 0)
-        })
-    }
     
     return (
         <div className={'feedback-page'}>
-            <Fireworks {...fxProps} />
             <div className={'feedback-page-content'}>
-                <div>{"Форма отправлена!"}</div>
-                <div>{"Перейдите по ссылке, чтобы посмотреть результаты:"}</div>
-                <a className={'feedback-page-content__link'} href={link}>{link}</a>
+                <div data-test-id="feedback-title">{"Форма отправлена!"}</div>
+                <div data-test-id="feedback-subtitle">{"Перейдите по ссылке, чтобы посмотреть результаты:"}</div>
+                <a className={'feedback-page-content__link'} href={link} data-test-id="feedback-link">{link}</a>
                 {/* <textarea />
                 <Button label={'Отправить фидбэк'} backgroundColor={'red'} /> */}
             </div>

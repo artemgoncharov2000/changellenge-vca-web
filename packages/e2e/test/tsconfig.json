@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "types": [
+            "node",
+            "webdriverio/async",
+            "@wdio/mocha-framework",
+            "expect-webdriverio"
+        ],
+        "target": "es2019",
+        "module": "commonJS",
+    },
+    "ts-node": {
+        "require": [
+            "tsconfig-paths/register",
+        ]
+    }
+}
