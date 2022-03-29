@@ -1,10 +1,15 @@
-.suggest-page-nav-bar {
-  position: relative;
+.suggest-page-nav-bar-container {
   width: 334px;
+}
 
-  background-color: white;
-
+.suggest-page-nav-bar {
+  top: 0;
+  position: sticky;
+  position: -webkit-sticky;
+  width: 334px;
+  height: 800px;
   padding: 32px 50px;
+  background-color: white;
 
   &__button {
     width: 100%;

@@ -26,8 +26,9 @@ const EventCard: FunctionComponent<Props> = (props) => {
         date,
         link,
     } = props;
-
-    const [day, month] = date.split('-');
+    console.log(date);
+    
+    const [year, month, day] = date.split('-');
     const monthName = monthNames[Number(month)];
     const [isRelevant, setIsRelevant] = useState<boolean>(true);
 

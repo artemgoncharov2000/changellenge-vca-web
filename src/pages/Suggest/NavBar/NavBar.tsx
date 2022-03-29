@@ -16,7 +16,8 @@ const NavBar: FC<PropsT> = ({activeSectionLabel, sectionLabels, nextSectionByNam
     }
 
     return (
-        <div className={'suggest-page-nav-bar'} data-test-id="nav-bar">
+        <div className={'suggest-page-nav-bar-container'}>
+            <div className="suggest-page-nav-bar" data-test-id="nav-bar">
             {
                 map(sectionLabels, (label, index) => (
                     <div key={`${label}_${index}`} className={''}>
@@ -42,6 +43,7 @@ const NavBar: FC<PropsT> = ({activeSectionLabel, sectionLabels, nextSectionByNam
             >
                 {"Расскажите о своих впечатлениях"}
             </a>
+            </div> 
         </div>
     )
 }

@@ -6,17 +6,22 @@
   display: flex;
   flex-direction: row;
   &__image {
-    width: 400px;
+    flex: 2;
+    width: 100%;
     height: 100%;
     background-size: cover;
+    background-position: center;
   }
 }
 
 .event-card-content {
-  padding: 5px 42px;
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  padding: 5px 20px;
 
   &__title {
-    font-size: 24px;
+    font-size: 22px;
     margin-bottom: 5px;
   }
 
