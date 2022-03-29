@@ -16,7 +16,7 @@ const NavBar: FC<PropsT> = ({activeSectionLabel, sectionLabels, nextSectionByNam
     }
 
     return (
-        <div className={'suggest-page-nav-bar'}>
+        <div className={'suggest-page-nav-bar'} data-test-id="nav-bar">
             {
                 map(sectionLabels, (label, index) => (
                     <div key={`${label}_${index}`} className={''}>
@@ -24,9 +24,9 @@ const NavBar: FC<PropsT> = ({activeSectionLabel, sectionLabels, nextSectionByNam
                             type="button"
                             className={
                                 `suggest-page-nav-bar__button 
-                                 
                                  ${label === activeSectionLabel ? 'suggest-page-nav-bar__button_selected' : ''}
                             `}
+                            data-test-id={`nav-bar-button_${label}`}
                             onClick={() => onClick(label)}
                         >
                             {label}
@@ -34,7 +34,14 @@ const NavBar: FC<PropsT> = ({activeSectionLabel, sectionLabels, nextSectionByNam
                     </div>
                 ))
             }
-            <a target="_blank" className='suggest-page-nav-bar_feedback-link' href='https://forms.yandex.ru/u/624055902e9d2ab7b0e2a8b0/'>Расскажите о своих впечатлениях</a>
+            <a 
+                className='suggest-page-nav-bar_feedback-link' 
+                target="_blank" 
+                href='https://forms.yandex.ru/u/624055902e9d2ab7b0e2a8b0/'
+                data-test-id="feedback-link"
+            >
+                {"Расскажите о своих впечатлениях"}
+            </a>
         </div>
     )
 }

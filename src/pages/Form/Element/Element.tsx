@@ -17,7 +17,7 @@ const Element: FC<IElementProps> = (props) => {
             case "TEXT_INPUT":
                 return <InputField elemId={elemId}/>
             case "SELECTOR":
-                return <SelectorField elemId={elemId} options={elementData.options ?? []} placeholder={elementData.placeholder}/>
+                return <SelectorField elemId={elemId} options={elementData.options ?? []} placeholder="Выберите..."/>
             case "TEXT_AREA":
                 return <TextArea elemId={elemId} />
             case "INTERVAL_DATE_PICKER":

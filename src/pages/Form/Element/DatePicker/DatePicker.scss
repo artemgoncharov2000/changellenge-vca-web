@@ -13,6 +13,11 @@
     margin: 0 4px;
     color: #AAB4B6;
   }
+
+  &__error {
+    color: red;
+    font-size: 14px;
+  }
 }
 
 .date-picker_input-container {
@@ -23,8 +28,7 @@
 
   height: 35px;
   border: 1px solid #AAB4B6;
-
-
+ 
   &__value {
     font-size: 14px;
     background: none;

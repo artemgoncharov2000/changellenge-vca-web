@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import {ISelectorFieldProps} from "./types";
 import Select from "react-select";
 import './SelectorField.scss';
@@ -9,13 +9,29 @@ export interface StateOption {
     readonly value: string;
     readonly label: string;
 }
+
+const validateInput = (value: string) => {
+    let error;
+    if (value === '') {
+        error = 'Обязательное поле';
+    }
+    return error;
+}
+
 const SelectorField: FC<ISelectorFieldProps> = (props) => {
     const {
         elemId,
         options,
         placeholder,
     } = props;
-    const [field, meta, helpers] = useField(String(elemId));
+
+    const [field, meta, helpers] = useField({
+        name: elemId,
+        validate: validateInput,
+    });
+
+    const [touched, setTouched] = useState<boolean>(false);
+
     const handleValueChange = ({value}: any) => {
         helpers.setValue(value)
     }
@@ -35,8 +51,9 @@ const SelectorField: FC<ISelectorFieldProps> = (props) => {
                     ...theme,
                     borderRadius: 0,
                 })}
+                onFocus={() => setTouched(true)}
             />
-            {meta.error && <div className={'selector-field__error'}>Error</div>}
+            {meta.error && touched && <div className={'selector-field__error'}>{`* ${meta.error}`}</div>}
         </div>
 
     )
