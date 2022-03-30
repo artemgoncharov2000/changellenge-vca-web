@@ -30,8 +30,6 @@ const SelectorField: FC<ISelectorFieldProps> = (props) => {
         validate: validateInput,
     });
 
-    const [touched, setTouched] = useState<boolean>(false);
-
     const handleValueChange = ({value}: any) => {
         helpers.setValue(value)
     }
@@ -51,9 +49,8 @@ const SelectorField: FC<ISelectorFieldProps> = (props) => {
                     ...theme,
                     borderRadius: 0,
                 })}
-                onFocus={() => setTouched(true)}
             />
-            {meta.error && touched && <div className={'selector-field__error'}>{`* ${meta.error}`}</div>}
+            {meta.error && <div className={'selector-field__error'}>{`* ${meta.error}`}</div>}
         </div>
 
     )

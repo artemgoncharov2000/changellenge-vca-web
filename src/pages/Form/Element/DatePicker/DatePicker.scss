@@ -1,8 +1,7 @@
 .date-picker-wrapper {
   width: 350px;
   display: flex;
-  flex-direction: row;
-
+  flex-direction: column;
 
 
   &__divider {
@@ -32,5 +31,11 @@
   &__value {
     font-size: 14px;
     background: none;
+  }
+
+  &__value-empty {
+    font-size: 14px;
+    background: none;
+    color: gray;
   }
 }
