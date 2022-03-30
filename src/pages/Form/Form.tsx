@@ -80,13 +80,13 @@ const Form = () => {
     }
 
     const updateInitialValues = (sessionId: number, data: {[elemId: number]: string}) => {
-        const newInitialValues = {...initialValues};
+        const newInitialValues = {...ref.current.values};
         newInitialValues[sessionId].push(data);
+        console.log('currentInitialValues', newInitialValues);
         setInitialValues(newInitialValues);
     }
 
     const canGoNext = () => {
-        console.log('Some functions');
         const values = ref.current.values
         const canSubmit = checkValues(values, currentBlock);
         if (!canSubmit) {
